@@ -1,0 +1,200 @@
+// ==============================================================================
+// SUPPLY CHAIN INTELLIGENCE & INVENTORY RISK ANALYTICS (INDIA & INR LOCALIZED)
+// Comprehensive DAX Measures Library for Power BI (Currency: Indian Rupee ₹ / INR)
+// ==============================================================================
+
+// -----------------------------------------------------------------------------
+// 1. EXECUTIVE OVERVIEW MEASURES (PAGE 1)
+// -----------------------------------------------------------------------------
+
+// Total Revenue in INR (Format: Currency ₹#,0.00 or ₹#,0,, "Cr")
+Total Revenue = 
+SUMX(
+    fact_sales,
+    fact_sales[quantity_sold] * fact_sales[unit_price]
+)
+
+// Total Cost of Goods Sold in INR
+Total COGS = 
+SUMX(
+    fact_sales,
+    fact_sales[quantity_sold] * fact_sales[unit_cost]
+)
+
+// Total Gross Profit in INR
+Total Gross Profit = 
+[Total Revenue] - [Total COGS]
+
+// Gross Profit Margin %
+Gross Profit Margin % = 
+DIVIDE([Total Gross Profit], [Total Revenue], 0) * 100
+
+// Total Units Sold across all Indian DCs
+Total Units Sold = 
+SUM(fact_sales[quantity_sold])
+
+// Total Transactions / Order Volume
+Total Orders = 
+DISTINCTCOUNT(fact_sales[sale_id])
+
+// Average Order Value (AOV in ₹)
+Average Order Value = 
+DIVIDE([Total Revenue], [Total Orders], 0)
+
+// Current Closing Inventory Valuation in ₹
+Current Inventory Value = 
+SUM(analytics_inventory_risk[current_inventory_value])
+
+// Average Inventory Valuation across snapshots
+Average Inventory Value = 
+AVERAGEX(
+    fact_inventory,
+    fact_inventory[closing_inventory_value]
+)
+
+// Annualized COGS in ₹
+Annualized COGS = 
+[Total COGS] * (365 / DISTINCTCOUNT(fact_sales[sale_date]))
+
+// Inventory Turnover Ratio = Annualized COGS / Avg Inventory Value
+Inventory Turnover Ratio = 
+DIVIDE([Annualized COGS], [Average Inventory Value], 0)
+
+// Days Inventory Outstanding (DIO in Days)
+Days Inventory Outstanding (DIO) = 
+DIVIDE([Average Inventory Value], [Annualized COGS], 0) * 365
+
+// Overall Stockout Rate % across all inventory days
+Overall Stockout Rate % = 
+DIVIDE(
+    CALCULATE(COUNTROWS(fact_inventory), fact_inventory[is_stockout] = 1),
+    COUNTROWS(fact_inventory),
+    0
+) * 100
+
+// Overall Supplier On-Time Delivery %
+Overall On Time Delivery % = 
+DIVIDE(
+    CALCULATE(COUNTROWS(fact_deliveries), fact_deliveries[is_on_time] = 1),
+    COUNTROWS(fact_deliveries),
+    0
+) * 100
+
+// -----------------------------------------------------------------------------
+// 2. INVENTORY RISK & HEALTH MEASURES (PAGE 2)
+// -----------------------------------------------------------------------------
+
+Critical Risk SKU Count = 
+CALCULATE(
+    COUNTROWS(analytics_inventory_risk),
+    analytics_inventory_risk[risk_category] = "Critical"
+)
+
+High Risk SKU Count = 
+CALCULATE(
+    COUNTROWS(analytics_inventory_risk),
+    analytics_inventory_risk[risk_category] = "High"
+)
+
+Medium Risk SKU Count = 
+CALCULATE(
+    COUNTROWS(analytics_inventory_risk),
+    analytics_inventory_risk[risk_category] = "Medium"
+)
+
+Low Risk SKU Count = 
+CALCULATE(
+    COUNTROWS(analytics_inventory_risk),
+    analytics_inventory_risk[risk_category] = "Low"
+)
+
+Stockout SKUs Currently = 
+CALCULATE(
+    COUNTROWS(analytics_inventory_risk),
+    analytics_inventory_risk[current_closing_stock] <= 0
+)
+
+Excess Inventory SKUs = 
+CALCULATE(
+    COUNTROWS(analytics_inventory_risk),
+    analytics_inventory_risk[excess_units] > 0
+)
+
+// Excess Stock Value in ₹
+Total Excess Inventory Value = 
+SUM(analytics_inventory_risk[excess_inventory_value])
+
+Average Inventory Risk Score = 
+AVERAGE(analytics_inventory_risk[inventory_risk_score])
+
+Average Days of Inventory = 
+AVERAGE(analytics_inventory_risk[days_of_inventory])
+
+// -----------------------------------------------------------------------------
+// 3. DEMAND FORECASTING MEASURES (PAGE 3)
+// -----------------------------------------------------------------------------
+
+Historical Actual Demand = 
+SUM(fact_sales[quantity_sold])
+
+Forecast Daily Demand Mean = 
+SUM(analytics_demand_forecasts[forecast_daily_mean])
+
+Forecast 30-Day Demand = 
+SUM(analytics_demand_forecasts[forecast_next_30d])
+
+Forecast Demand During Lead Time = 
+SUM(analytics_demand_forecasts[forecast_demand_lead_time])
+
+Forecast Variance = 
+SUMX(
+    demand_forecast_evaluation,
+    demand_forecast_evaluation[predicted_demand] - demand_forecast_evaluation[quantity_sold]
+)
+
+Forecast MAE = 
+AVERAGEX(
+    demand_forecast_evaluation,
+    demand_forecast_evaluation[abs_error]
+)
+
+// -----------------------------------------------------------------------------
+// 4. SUPPLIER PERFORMANCE MEASURES (PAGE 4)
+// -----------------------------------------------------------------------------
+
+Total Deliveries = 
+COUNTROWS(fact_deliveries)
+
+On Time Deliveries = 
+CALCULATE(
+    COUNTROWS(fact_deliveries),
+    fact_deliveries[is_on_time] = 1
+)
+
+Supplier On Time % = 
+DIVIDE([On Time Deliveries], [Total Deliveries], 0) * 100
+
+Total Ordered Quantity = 
+SUM(fact_deliveries[quantity_ordered])
+
+Total Received Quantity = 
+SUM(fact_deliveries[quantity_received])
+
+Supplier Fill Rate % = 
+DIVIDE([Total Received Quantity], [Total Ordered Quantity], 0) * 100
+
+Total Damaged Quantity = 
+SUM(fact_deliveries[damaged_quantity])
+
+Supplier Defect Rate % = 
+DIVIDE([Total Damaged Quantity], [Total Received Quantity], 0) * 100
+
+Average Supplier Delay Days = 
+AVERAGE(fact_deliveries[delay_days])
+
+// Total Procurement Spend in ₹
+Total Procurement Spend = 
+SUM(fact_purchase_orders[total_po_cost])
+
+Supplier Average Risk Score = 
+AVERAGE(analytics_supplier_scorecard[supplier_risk_score])

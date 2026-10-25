@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supply Chain Intelligence & Inventory Risk Analytics (India - INR)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="data.js"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-text">
+          <h2>SupplyChain India</h2>
+          <p>Inventory Risk & Intelligence</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="tab-overview">
+          <span class="icon">📊</span> Executive Overview
+        </button>
+        <button class="nav-item" data-tab="tab-risk">
+          <span class="icon">⚠️</span> Inventory Risk & Triage
+        </button>
+        <button class="nav-item" data-tab="tab-forecast">
+          <span class="icon">📈</span> Demand Forecasting (ML)
+        </button>
+        <button class="nav-item" data-tab="tab-suppliers">
+          <span class="icon">🏭</span> Supplier Scorecard
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-indicator">
+          <span class="pulse-dot"></span> Pipeline Active (PostgreSQL DW)
+        </div>
+        <p class="data-range">18 Months | 500 SKUs | 5 Indian DCs (INR ₹)</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-title">
+          <h1 id="page-title">Executive Supply Chain Overview (India)</h1>
+          <p id="page-subtitle">Real-time revenue in INR (₹ Cr), inventory velocity, and fulfillment health across Indian Distribution Centers</p>
+        </div>
+        <div class="header-controls">
+          <div class="quick-stat">
+            <span class="lbl">Last ETL Refresh</span>
+            <span class="val">Live (21/21 DQ Audits Passed)</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- TAB 1: EXECUTIVE OVERVIEW -->
+      <section id="tab-overview" class="tab-pane active">
+        <!-- KPI Cards Grid -->
+        <div class="kpi-grid">
+          <div class="kpi-card highlight-green">
+            <div class="kpi-header">
+              <span class="kpi-title">Gross Revenue (INR)</span>
+              <span class="kpi-badge">+16.4% Festive MoM</span>
+            </div>
+            <div class="kpi-value" id="kpi-revenue">₹2,042.8 Cr</div>
+            <div class="kpi-footer">146,283 Orders Fulfilled</div>
+          </div>
+
+          <div class="kpi-card highlight-blue">
+            <div class="kpi-header">
+              <span class="kpi-title">Gross Profit Margin</span>
+              <span class="kpi-badge">Healthy</span>
+            </div>
+            <div class="kpi-value" id="kpi-margin">21.84%</div>
+            <div class="kpi-footer">Gross Profit: ₹446.1 Cr</div>
+          </div>
+
+          <div class="kpi-card highlight-purple">
+            <div class="kpi-header">
+              <span class="kpi-title">Inventory Turnover</span>
+              <span class="kpi-badge">4.15x / yr</span>
+            </div>
+            <div class="kpi-value">4.15x</div>
+            <div class="kpi-footer">Avg DIO: 87.9 Days</div>
+          </div>
+
+          <div class="kpi-card highlight-red">
+            <div class="kpi-header">
+              <span class="kpi-title">Stockout Incidents</span>
+              <span class="kpi-badge red-badge">Critical Action</span>
+            </div>
+            <div class="kpi-value" id="kpi-stockouts">6 SKUs</div>
+            <div class="kpi-footer">1.8% of Total Inventory Days</div>
+          </div>
+
+          <div class="kpi-card highlight-amber">
+            <div class="kpi-header">
+              <span class="kpi-title">Supplier On-Time %</span>
+              <span class="kpi-badge amber-badge">SLA Target: 95%</span>
+            </div>
+            <div class="kpi-value" id="kpi-otd">89.40%</div>
+            <div class="kpi-footer">Avg Delay: 2.48 Days</div>
+          </div>
+        </div>
+
+        <!-- Visuals Grid -->
+        <div class="charts-grid">
+          <div class="chart-card span-2">
+            <div class="chart-card-header">
+              <h3>Monthly Revenue & Profitability Trend (₹ Crores)</h3>
+              <span class="badge">18 Months Time-Series</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-monthly-trend"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <h3>Inventory Health Breakdown</h3>
+              <span class="badge">2,500 SKU-DC Pairs</span>
+            </div>
+            <div class="chart-container donut-container">
+              <canvas id="chart-health-donut"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <h3>Revenue by Category (₹ Crores)</h3>
+              <span class="badge">5 Product Segments</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-category-sales"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card span-2">
+            <div class="chart-card-header">
+              <h3>Regional DC Fulfillment Volume (₹ Crores)</h3>
+              <span class="badge">5 Indian Regional Hubs</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-warehouse-sales"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: INVENTORY RISK & OPERATIONAL TRIAGE -->
+      <section id="tab-risk" class="tab-pane">
+        <div class="kpi-grid">
+          <div class="kpi-card highlight-red">
+            <div class="kpi-header"><span class="kpi-title">Critical Risk SKUs</span></div>
+            <div class="kpi-value" id="kpi-critical-skus">6</div>
+            <div class="kpi-footer">Score >= 80 (Immediate Stockout Exposure)</div>
+          </div>
+          <div class="kpi-card highlight-amber">
+            <div class="kpi-header"><span class="kpi-title">High Risk SKUs</span></div>
+            <div class="kpi-value" id="kpi-high-skus">10</div>
+            <div class="kpi-footer">Score 60-79 (Review Safety Stock)</div>
+          </div>
+          <div class="kpi-card highlight-blue">
+            <div class="kpi-header"><span class="kpi-title">Total Inventory Locked</span></div>
+            <div class="kpi-value" id="kpi-inv-value">₹771.2 Cr</div>
+            <div class="kpi-footer">Across all 5 Indian Distribution Hubs</div>
+          </div>
+          <div class="kpi-card highlight-purple">
+            <div class="kpi-header"><span class="kpi-title">Excess / Slow Inventory</span></div>
+            <div class="kpi-value" id="kpi-excess-value">₹146.8 Cr</div>
+            <div class="kpi-footer">> 120 Days of Supply</div>
+          </div>
+        </div>
+
+        <!-- Scatter Plot Diagnostic -->
+        <div class="chart-card" style="margin-bottom: 24px;">
+          <div class="chart-card-header">
+            <div>
+              <h3>Inventory Risk Matrix (Stock Available vs Lead Time Demand)</h3>
+              <p class="chart-subtitle">Top-Left = Urgent Shortage / Stockout Vulnerability | Far Right = Capital-Trapping Overstock</p>
+            </div>
+            <div class="legend-badges">
+              <span class="badge red-badge">Critical</span>
+              <span class="badge amber-badge">High</span>
+              <span class="badge yellow-badge">Medium</span>
+              <span class="badge green-badge">Low</span>
+            </div>
+          </div>
+          <div class="chart-container" style="height: 320px;">
+            <canvas id="chart-risk-scatter"></canvas>
+          </div>
+        </div>
+
+        <!-- Triage Table -->
+        <div class="table-card">
+          <div class="table-card-header">
+            <h3>Inventory Triage & Procurement Recommendations (Indian Distribution Centers)</h3>
+            <div class="table-controls">
+              <input type="text" id="search-input" placeholder="Search SKU, name, or category..." class="search-box" />
+              <select id="filter-risk" class="select-box">
+                <option value="ALL">All Risk Tiers</option>
+                <option value="Critical">Critical Only (>=80)</option>
+                <option value="High">High Risk (60-79)</option>
+                <option value="Medium">Medium Risk (30-59)</option>
+                <option value="Low">Low Risk (<30)</option>
+              </select>
+              <select id="filter-warehouse" class="select-box">
+                <option value="ALL">All Regional DCs</option>
+                <option value="W001">Bengaluru (W001)</option>
+                <option value="W002">Hyderabad (W002)</option>
+                <option value="W003">Delhi NCR (W003)</option>
+                <option value="W004">Mumbai / Bhiwandi (W004)</option>
+                <option value="W005">Chennai (W005)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="risk-table">
+              <thead>
+                <tr>
+                  <th>SKU ID</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>DC</th>
+                  <th>Closing Stock</th>
+                  <th>Lead Time Demand</th>
+                  <th>DOI (Days)</th>
+                  <th>Risk Score</th>
+                  <th>Tier</th>
+                  <th>Actionable Recommendation</th>
+                </tr>
+              </thead>
+              <tbody id="risk-table-body">
+                <!-- Dynamically populated via app.js -->
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer">
+            <span id="table-record-count">Showing top 50 records</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: DEMAND FORECASTING (ML) -->
+      <section id="tab-forecast" class="tab-pane">
+        <div class="kpi-grid">
+          <div class="kpi-card highlight-blue">
+            <div class="kpi-header"><span class="kpi-title">Model Algorithm</span></div>
+            <div class="kpi-value" style="font-size: 22px;">Random Forest</div>
+            <div class="kpi-footer">100 Trees | Time-Series Lags</div>
+          </div>
+          <div class="kpi-card highlight-green">
+            <div class="kpi-header"><span class="kpi-title">Mean Absolute Error (MAE)</span></div>
+            <div class="kpi-value" id="kpi-mae">3.42</div>
+            <div class="kpi-footer">Units / Day (Holdout Test Set)</div>
+          </div>
+          <div class="kpi-card highlight-purple">
+            <div class="kpi-header"><span class="kpi-title">Root Mean Squared Error (RMSE)</span></div>
+            <div class="kpi-value" id="kpi-rmse">7.73</div>
+            <div class="kpi-footer">Units / Day</div>
+          </div>
+          <div class="kpi-card highlight-amber">
+            <div class="kpi-header"><span class="kpi-title">Chronological Split</span></div>
+            <div class="kpi-value" style="font-size: 22px;">15M / 3M</div>
+            <div class="kpi-footer">Train: 128.4K | Test: 27.3K samples</div>
+          </div>
+        </div>
+
+        <div class="charts-grid">
+          <div class="chart-card span-2">
+            <div class="chart-card-header">
+              <h3>Actual Sales vs Machine Learning Forecast (Holdout: ELEC Monitor @ Bengaluru W001)</h3>
+              <span class="badge">Chronological Test Set</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-forecast-series"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <h3>Top Feature Importance Weights (%)</h3>
+              <span class="badge">Scikit-Learn Random Forest</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-feature-importance"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: SUPPLIER SCORECARD -->
+      <section id="tab-suppliers" class="tab-pane">
+        <div class="kpi-grid">
+          <div class="kpi-card highlight-green">
+            <div class="kpi-header"><span class="kpi-title">Avg On-Time Delivery %</span></div>
+            <div class="kpi-value">89.40%</div>
+            <div class="kpi-footer">20 Strategic Indian Suppliers</div>
+          </div>
+          <div class="kpi-card highlight-amber">
+            <div class="kpi-header"><span class="kpi-title">Avg Delivery Delay</span></div>
+            <div class="kpi-value">2.48 Days</div>
+            <div class="kpi-footer">Benchmark SLA: <= 1.0 Day</div>
+          </div>
+          <div class="kpi-card highlight-blue">
+            <div class="kpi-header"><span class="kpi-title">Order Fill Rate</span></div>
+            <div class="kpi-value">94.20%</div>
+            <div class="kpi-footer">Qty Received / Qty Ordered</div>
+          </div>
+          <div class="kpi-card highlight-red">
+            <div class="kpi-header"><span class="kpi-title">Avg Defect Rate %</span></div>
+            <div class="kpi-value">2.60%</div>
+            <div class="kpi-footer">Damaged on arrival</div>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <div class="table-card-header">
+            <h3>Indian Supplier Performance Matrix & Risk Rankings</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table" id="supplier-table">
+              <thead>
+                <tr>
+                  <th>Vendor ID</th>
+                  <th>Supplier Name</th>
+                  <th>Manufacturing Hub / Region</th>
+                  <th>Supplier Type</th>
+                  <th>On-Time %</th>
+                  <th>Avg Delay</th>
+                  <th>Fill Rate %</th>
+                  <th>Defect %</th>
+                  <th>Risk Score</th>
+                  <th>Rating Tier</th>
+                </tr>
+              </thead>
+              <tbody id="supplier-table-body">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

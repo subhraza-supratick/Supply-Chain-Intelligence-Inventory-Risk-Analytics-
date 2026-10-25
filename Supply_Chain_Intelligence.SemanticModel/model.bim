@@ -1,0 +1,2500 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.144.679.0 (25.06)+ef40146207b86a826d1c72a7727a743ee37450e9"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Dim_Product\",\"Dim_Supplier\",\"Dim_Warehouse\",\"Dim_Date\",\"Fact_Sales\",\"Fact_Inventory\",\"Fact_Purchase_Orders\",\"Fact_Deliveries\",\"Inventory_Risk_Scores\",\"Supplier_Scorecard\",\"ABC_Analysis\",\"Demand_Forecasts\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-IN",
+    "cultures": [
+      {
+        "name": "en-IN",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "Rel_Product_Sales",
+        "fromColumn": "product_id",
+        "fromTable": "Fact_Sales",
+        "toColumn": "product_id",
+        "toTable": "Dim_Product"
+      },
+      {
+        "name": "Rel_Warehouse_Sales",
+        "fromColumn": "warehouse_id",
+        "fromTable": "Fact_Sales",
+        "toColumn": "warehouse_id",
+        "toTable": "Dim_Warehouse"
+      },
+      {
+        "name": "Rel_Date_Sales",
+        "fromColumn": "sale_date",
+        "fromTable": "Fact_Sales",
+        "toColumn": "date",
+        "toTable": "Dim_Date"
+      },
+      {
+        "name": "Rel_Product_Inventory",
+        "fromColumn": "product_id",
+        "fromTable": "Fact_Inventory",
+        "toColumn": "product_id",
+        "toTable": "Dim_Product"
+      },
+      {
+        "name": "Rel_Warehouse_Inventory",
+        "fromColumn": "warehouse_id",
+        "fromTable": "Fact_Inventory",
+        "toColumn": "warehouse_id",
+        "toTable": "Dim_Warehouse"
+      },
+      {
+        "name": "Rel_Supplier_POs",
+        "fromColumn": "supplier_id",
+        "fromTable": "Fact_Purchase_Orders",
+        "toColumn": "supplier_id",
+        "toTable": "Dim_Supplier"
+      },
+      {
+        "name": "Rel_Supplier_Deliveries",
+        "fromColumn": "supplier_id",
+        "fromTable": "Fact_Deliveries",
+        "toColumn": "supplier_id",
+        "toTable": "Dim_Supplier"
+      },
+      {
+        "name": "Rel_Product_POs",
+        "fromColumn": "product_id",
+        "fromTable": "Fact_Purchase_Orders",
+        "toColumn": "product_id",
+        "toTable": "Dim_Product"
+      }
+    ],
+    "sourceQueryCulture": "en-IN",
+    "tables": [
+      {
+        "name": "Dim_Product",
+        "columns": [
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "lineageTag": "52597497-0a4e-456c-a496-cef611578a80",
+            "sourceColumn": "product_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_name",
+            "dataType": "string",
+            "lineageTag": "086f250b-8728-4108-b4b2-4b84f0db6f16",
+            "sourceColumn": "product_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "782f936b-60cf-458a-9c7f-cbfbbf6a339b",
+            "sourceColumn": "category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "subcategory",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6b990503-e685-47e7-ba76-fae0792a87e4",
+            "sourceColumn": "subcategory",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unit_cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "11b25a08-2e0e-4656-b9a6-f9385c0d5a0e",
+            "sourceColumn": "unit_cost",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "selling_price",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d4f2e96c-3fec-46fb-93fb-5370dd6ac019",
+            "sourceColumn": "selling_price",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "reorder_point",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "020c4812-b115-4cfa-b898-75788f9543a9",
+            "sourceColumn": "reorder_point",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lead_time_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "495d9858-a77d-44dd-9e21-ba46ef1ab1b7",
+            "sourceColumn": "lead_time_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "safety_stock",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "18052ab5-e53d-4c96-ba48-1bf2f05661a9",
+            "sourceColumn": "safety_stock",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "gross_margin_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d54c5196-df73-487c-a1e6-c726340e0763",
+            "sourceColumn": "gross_margin_pct",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "90ccb393-3a58-4b9a-836d-738d697e0e23",
+        "partitions": [
+          {
+            "name": "Dim_Product",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    Dim_Product_Sheet = Source{[Item=\"Dim_Product\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Dim_Product_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dim_Supplier",
+        "columns": [
+          {
+            "name": "supplier_id",
+            "dataType": "string",
+            "lineageTag": "d98c0e35-d82c-47e7-bf74-35e81e92152d",
+            "sourceColumn": "supplier_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "supplier_name",
+            "dataType": "string",
+            "lineageTag": "1a799c1c-a273-4ea2-b9b5-5c243786a95e",
+            "sourceColumn": "supplier_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "supplier_region",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "473e1952-ed96-40c5-84b1-48a6086a5498",
+            "sourceColumn": "supplier_region",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "supplier_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2ad901e9-361d-41fd-9383-29b1d8255f48",
+            "sourceColumn": "supplier_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "contract_start_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "162b40bb-a02d-4fd7-9b7c-4d5ba7d83a74",
+            "sourceColumn": "contract_start_date",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "8021ffc0-2496-45aa-80ec-581b391fa8bb",
+        "partitions": [
+          {
+            "name": "Dim_Supplier",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    Dim_Supplier_Sheet = Source{[Item=\"Dim_Supplier\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Dim_Supplier_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dim_Warehouse",
+        "columns": [
+          {
+            "name": "warehouse_id",
+            "dataType": "string",
+            "lineageTag": "4188f8da-b5b8-4054-b753-9e0d86ef5fd8",
+            "sourceColumn": "warehouse_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "warehouse_name",
+            "dataType": "string",
+            "lineageTag": "4641f0b3-4c02-4982-bcc0-acc9a91b48aa",
+            "sourceColumn": "warehouse_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "city",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1165c93b-6283-4c8a-9c62-3d03d9e7ec39",
+            "sourceColumn": "city",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "state",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d5134ea1-a5bf-4c55-b4ca-f9c7d37b9db1",
+            "sourceColumn": "state",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "warehouse_capacity",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5eece236-ad61-4c73-94e9-05c357da6be5",
+            "sourceColumn": "warehouse_capacity",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "59377b11-0199-40af-963c-a0597a6104fa",
+        "partitions": [
+          {
+            "name": "Dim_Warehouse",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    Dim_Warehouse_Sheet = Source{[Item=\"Dim_Warehouse\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Dim_Warehouse_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Dim_Date",
+        "columns": [
+          {
+            "name": "date_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3c678245-76c5-4b46-808d-69c5d9620c1c",
+            "sourceColumn": "date_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7c140cd8-b599-49c6-8862-280501d1e690",
+            "sourceColumn": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a9d2a6d9-fad5-49ff-a9f7-5e66ff55f3a5",
+            "sourceColumn": "year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "66d9b300-0514-481e-8b9f-7254e7c65ba0",
+            "sourceColumn": "quarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "quarter_name",
+            "dataType": "string",
+            "lineageTag": "74d5eda2-ef51-4cb8-b613-08c0f08244d0",
+            "sourceColumn": "quarter_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "year_quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "86376234-60c8-4c6d-947c-8a4eda8c7712",
+            "sourceColumn": "year_quarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ad0d3b60-6d05-4fe1-8f9f-288d402b7556",
+            "sourceColumn": "month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "month_name",
+            "dataType": "string",
+            "lineageTag": "e827a843-79de-46f6-8e8e-71febccf4ad9",
+            "sourceColumn": "month_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "year_month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b6ca8dbf-30b8-4170-93fc-3ea2c39851e6",
+            "sourceColumn": "year_month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "week_of_year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7e55f280-7ec9-45c5-955a-83db4a8e3462",
+            "sourceColumn": "week_of_year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "day_of_month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d4844b91-5d57-4ed7-ab01-9a1729c79dfd",
+            "sourceColumn": "day_of_month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "day_of_week",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1bc61c1b-5392-4953-8302-23827f03a2c2",
+            "sourceColumn": "day_of_week",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "day_name",
+            "dataType": "string",
+            "lineageTag": "fd40ddcc-6ec9-4882-9a64-4b8a95414c8e",
+            "sourceColumn": "day_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_weekend",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a59c7da9-2f59-448c-913d-0d6093fada4d",
+            "sourceColumn": "is_weekend",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_quarter_end",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4e6b082d-069a-4d2c-801a-4c578036bc27",
+            "sourceColumn": "is_quarter_end",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "c0577a9d-afbb-4fc6-b1fa-db72ba7978e6",
+        "partitions": [
+          {
+            "name": "Dim_Date",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    Dim_Date_Sheet = Source{[Item=\"Dim_Date\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Dim_Date_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Fact_Sales",
+        "columns": [
+          {
+            "name": "sale_id",
+            "dataType": "string",
+            "lineageTag": "a5dd6be8-543b-45fe-a9b1-b4a496210a89",
+            "sourceColumn": "sale_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sale_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c753660a-8b8b-4c29-a4d7-401db94924e9",
+            "sourceColumn": "sale_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "lineageTag": "b761d3bc-9e3d-4cb8-82a2-b425c9f89f52",
+            "sourceColumn": "product_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "warehouse_id",
+            "dataType": "string",
+            "lineageTag": "c9009335-9278-41f9-9a7b-1307d3fea044",
+            "sourceColumn": "warehouse_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "quantity_sold",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "19580f37-4fbf-47cb-ade8-825186c2dec1",
+            "sourceColumn": "quantity_sold",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unit_price",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "452c6675-d75e-4935-9775-9fdf976409e6",
+            "sourceColumn": "unit_price",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unit_cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "813cff3c-060c-457d-86d1-ca506be94a17",
+            "sourceColumn": "unit_cost",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_revenue",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ab2af37d-1a9a-4ec1-ab89-a8fd718d14c4",
+            "sourceColumn": "total_revenue",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_cogs",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "dcfb44da-0554-4846-b35f-516cbde6b877",
+            "sourceColumn": "total_cogs",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "gross_profit",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "31225bea-c7a6-420a-bd5a-ece030eb7369",
+            "sourceColumn": "gross_profit",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "profit_margin_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d8112d34-2e3f-470d-ad9d-0182a984d9e4",
+            "sourceColumn": "profit_margin_pct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f9de38d1-6c70-4612-bb0e-b530c9133086",
+            "sourceColumn": "customer_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "sales_channel",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ae73b2ce-0c9e-4762-b819-5ee466ec2f52",
+            "sourceColumn": "sales_channel",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "b2cc86b6-ea93-4040-a0ed-6d5eb0c82ffa",
+        "measures": [
+          {
+            "name": "Total Revenue",
+            "expression": "SUM(Fact_Sales[total_revenue])",
+            "formatString": "\\₹#,0.00;(\\₹#,0.00);\\₹0.00",
+            "lineageTag": "957cfb70-cb54-4029-a5a7-84d02ecd7d9b"
+          },
+          {
+            "name": "Total COGS",
+            "expression": "SUM(Fact_Sales[total_cogs])",
+            "formatString": "\\₹#,0;(\\₹#,0);\\₹0",
+            "lineageTag": "14f52deb-231f-4da3-9c4e-d7f48cca27df"
+          },
+          {
+            "name": "Total Gross Profit",
+            "expression": "SUM(Fact_Sales[gross_profit])",
+            "formatString": "\\₹#,0.00;(\\₹#,0.00);\\₹0.00",
+            "lineageTag": "b8472870-de69-4be6-a373-e97ea513f9c9"
+          },
+          {
+            "name": "Gross Margin %",
+            "expression": "DIVIDE([Total Gross Profit], [Total Revenue], 0)",
+            "formatString": "0.00%",
+            "lineageTag": "cd821319-facd-4492-af30-af2e7cfae970"
+          },
+          {
+            "name": "Total Orders",
+            "expression": "DISTINCTCOUNT(Fact_Sales[sale_id])",
+            "formatString": "#,0",
+            "lineageTag": "ef7f35ae-a26c-4d0c-b626-5ec856eb651f"
+          },
+          {
+            "name": "Units Sold",
+            "expression": "SUM(Fact_Sales[quantity_sold])",
+            "formatString": "#,0",
+            "lineageTag": "12d20d18-04f9-4b7f-b4db-15c686b96854"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Fact_Sales",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    Fact_Sales_Sheet = Source{[Item=\"Fact_Sales\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Fact_Sales_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Fact_Inventory",
+        "columns": [
+          {
+            "name": "inventory_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b63ad5bb-9351-4668-a95d-255cb488cde3",
+            "sourceColumn": "inventory_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "lineageTag": "5ea3f72b-182c-4406-92a4-1d86e693a94a",
+            "sourceColumn": "product_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "warehouse_id",
+            "dataType": "string",
+            "lineageTag": "daa8b7fe-ad48-4e0c-9a3a-d46bd88d4845",
+            "sourceColumn": "warehouse_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "opening_stock",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "183aa753-0a8c-4f55-8ca6-5a363fa657a8",
+            "sourceColumn": "opening_stock",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "stock_received",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8e790d36-7974-4c78-ab64-b49ab13951fe",
+            "sourceColumn": "stock_received",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "quantity_sold",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a56a20d8-7f9f-474b-944f-f4a3042dcf30",
+            "sourceColumn": "quantity_sold",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "damaged_stock",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c3cd618b-87a8-4692-a1bc-9a4e40276509",
+            "sourceColumn": "damaged_stock",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "closing_stock",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d420427f-3eea-438e-91f2-515c374242f9",
+            "sourceColumn": "closing_stock",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unit_cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "79493ee4-5fde-4be8-b45c-71e9048cda66",
+            "sourceColumn": "unit_cost",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "closing_inventory_value",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8ab41781-2e27-42c9-b911-7498554a1f87",
+            "sourceColumn": "closing_inventory_value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_stockout",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5b0ffc3d-5611-4287-943a-5435d1444432",
+            "sourceColumn": "is_stockout",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "bcc035bc-7cfb-4735-a2c3-20f75ced0f03",
+        "measures": [
+          {
+            "name": "Total Inventory Value",
+            "expression": "SUM(Fact_Inventory[closing_inventory_value])",
+            "formatString": "\\₹#,0;(\\₹#,0);\\₹0",
+            "lineageTag": "88d24c27-202d-4999-98a3-e39568fcf8c4"
+          },
+          {
+            "name": "Total Closing Stock Units",
+            "expression": "SUM(Fact_Inventory[closing_stock])",
+            "formatString": "#,0",
+            "lineageTag": "68435721-4b8f-48c1-adcf-c1d4e7e664a1"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Fact_Inventory",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    Fact_Inventory_Sheet = Source{[Item=\"Fact_Inventory\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Fact_Inventory_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Fact_Purchase_Orders",
+        "columns": [
+          {
+            "name": "po_id",
+            "dataType": "string",
+            "lineageTag": "f52a2467-8a35-49ac-8be6-7852071749f4",
+            "sourceColumn": "po_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "po_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5fbf42bd-a1b1-4841-8877-1fbdcd25be04",
+            "sourceColumn": "po_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "supplier_id",
+            "dataType": "string",
+            "lineageTag": "6ae69c31-2134-4a99-a2ce-3d1eda3bc8ac",
+            "sourceColumn": "supplier_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "lineageTag": "9e71bce0-e06b-4cbc-a485-f6e9666431bb",
+            "sourceColumn": "product_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "warehouse_id",
+            "dataType": "string",
+            "lineageTag": "0a0ad9ec-d975-4f5c-af43-319076bb664d",
+            "sourceColumn": "warehouse_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ordered_quantity",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2b0d1cb9-b87c-428c-8f7d-d176f5819a62",
+            "sourceColumn": "ordered_quantity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "expected_delivery_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6127141e-c320-4bde-be84-d042234ff233",
+            "sourceColumn": "expected_delivery_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "actual_delivery_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f5eb5438-a965-47aa-92e8-b5e030ad62a2",
+            "sourceColumn": "actual_delivery_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unit_cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f48068d8-edc4-4db9-8c27-19a186e1f4c1",
+            "sourceColumn": "unit_cost",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_po_cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7759a9b7-b6f0-4571-9c56-00310f5ab696",
+            "sourceColumn": "total_po_cost",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "target_lead_time_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "96d4bdaf-bbe1-4ea3-9b0e-05a76c8afd46",
+            "sourceColumn": "target_lead_time_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "actual_lead_time_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3f9a9fc4-a517-4af5-813d-98124f32ee0c",
+            "sourceColumn": "actual_lead_time_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delay_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "852365a8-3610-4240-936a-78a1f99800a3",
+            "sourceColumn": "delay_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_delayed",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7068a2ec-345d-4123-a739-40621f02c552",
+            "sourceColumn": "is_delayed",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "c655a9c5-494e-4623-a3cd-53969471a05f",
+        "partitions": [
+          {
+            "name": "Fact_Purchase_Orders",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    Fact_Purchase_Orders_Sheet = Source{[Item=\"Fact_Purchase_Orders\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Fact_Purchase_Orders_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Fact_Deliveries",
+        "columns": [
+          {
+            "name": "delivery_id",
+            "dataType": "string",
+            "lineageTag": "9f479eeb-c770-432f-a9fd-8cd36c17f5d6",
+            "sourceColumn": "delivery_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "po_id",
+            "dataType": "string",
+            "lineageTag": "e0753a9c-7d97-4efb-b25c-b858e0164fe5",
+            "sourceColumn": "po_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "supplier_id",
+            "dataType": "string",
+            "lineageTag": "74eded8a-1c9e-46e1-b494-b9c955842089",
+            "sourceColumn": "supplier_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "lineageTag": "0a96201b-9d80-4a57-bf46-87f1531b8db0",
+            "sourceColumn": "product_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "warehouse_id",
+            "dataType": "string",
+            "lineageTag": "41c4d10a-5a6c-4f5d-9f18-174c43178537",
+            "sourceColumn": "warehouse_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dispatch_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "25e5ae17-c824-4e7d-86af-4aff615e51bc",
+            "sourceColumn": "dispatch_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "expected_delivery_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "43df836f-ea88-4f56-94a5-dd9e2dd0dd7d",
+            "sourceColumn": "expected_delivery_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "actual_delivery_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7a4d3972-e007-490f-8065-3c7709eebe4b",
+            "sourceColumn": "actual_delivery_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "quantity_ordered",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "565f551a-f007-48da-b050-c57b1f3fb8a0",
+            "sourceColumn": "quantity_ordered",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "quantity_received",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5889ffbc-7e52-4d06-ac8d-d21812fde87b",
+            "sourceColumn": "quantity_received",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "damaged_quantity",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8f70653e-67df-4072-9d86-b11fe5ebd0bb",
+            "sourceColumn": "damaged_quantity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "transit_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b1d02f74-c7e1-4264-beed-58d9d0a6de42",
+            "sourceColumn": "transit_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "delay_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3ae65048-6bfd-42b3-adfb-7203a4679201",
+            "sourceColumn": "delay_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_on_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "41eaab79-e34a-40d5-ad39-0c2b0de3d714",
+            "sourceColumn": "is_on_time",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "fill_rate_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "788293cb-e110-4a4d-ad03-d3904d9e11e5",
+            "sourceColumn": "fill_rate_pct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "defect_rate_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5061ad57-f09c-4337-9d31-0298edcbd70b",
+            "sourceColumn": "defect_rate_pct",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "16bacd14-afb5-4c3f-b946-47032f418edb",
+        "measures": [
+          {
+            "name": "OTD %",
+            "expression": "DIVIDE(CALCULATE(COUNTROWS(Fact_Deliveries), Fact_Deliveries[delay_days] <= 0), COUNTROWS(Fact_Deliveries), 0)",
+            "formatString": "0.00%",
+            "lineageTag": "9faf2feb-bef8-4b22-b566-67f2fb5cce72"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Fact_Deliveries",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    Fact_Deliveries_Sheet = Source{[Item=\"Fact_Deliveries\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Fact_Deliveries_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Inventory_Risk_Scores",
+        "columns": [
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "lineageTag": "ff92d8ac-e331-454b-a7c1-fb359bd56708",
+            "sourceColumn": "product_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "warehouse_id",
+            "dataType": "string",
+            "lineageTag": "9c33ea13-c526-4531-b99b-4bdb064113fd",
+            "sourceColumn": "warehouse_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_units_sold",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "79e28b8f-4b10-480a-b170-5e2ea1024c1e",
+            "sourceColumn": "total_units_sold",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_revenue",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "586ac3f5-a028-4a96-ae8d-613bdeb18114",
+            "sourceColumn": "total_revenue",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_cogs",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "939b843f-4c01-4f5e-9d77-d0e9114a1503",
+            "sourceColumn": "total_cogs",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "active_sales_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cc8fd70b-1f70-4242-ba9a-803194100b8d",
+            "sourceColumn": "active_sales_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "avg_daily_demand",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ef64a662-f94c-4db5-8173-798276b585b4",
+            "sourceColumn": "avg_daily_demand",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_inventory_snapshots",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "964bbfd3-ac11-46fb-b570-b8e362986464",
+            "sourceColumn": "total_inventory_snapshots",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "stockout_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e179d0dd-d4a4-4bbd-813e-4cd02ea6c10f",
+            "sourceColumn": "stockout_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "avg_closing_stock",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4e539c44-0f75-42b6-9bf4-5b6d4a857c58",
+            "sourceColumn": "avg_closing_stock",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "current_closing_stock",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cf1823f6-9a33-48f7-9e76-e35f7ab477c4",
+            "sourceColumn": "current_closing_stock",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "avg_inventory_value",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "00932346-2bd3-4b6a-9f9e-53f0392f092f",
+            "sourceColumn": "avg_inventory_value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "current_inventory_value",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "20aa2659-7906-4be7-aef4-6ebf3aaf5d2b",
+            "sourceColumn": "current_inventory_value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "stockout_rate_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6e416fb1-70c4-4b8f-b83f-6ff774d1f118",
+            "sourceColumn": "stockout_rate_pct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_name",
+            "dataType": "string",
+            "lineageTag": "0af78883-dff4-4175-b0b3-b6723c213519",
+            "sourceColumn": "product_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "24b8596f-8f9e-4d97-82a1-3ee8b7e7364b",
+            "sourceColumn": "category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "subcategory",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5ca10ed1-2e2d-4d93-98e4-9ad0a20bc00d",
+            "sourceColumn": "subcategory",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unit_cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3657e76b-1678-434c-85cd-86a7cb02393b",
+            "sourceColumn": "unit_cost",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "selling_price",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1ffcee8f-7173-40ba-9ced-7abeffc67f09",
+            "sourceColumn": "selling_price",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lead_time_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "888d103a-b5bd-494a-bbcd-20d229c863b7",
+            "sourceColumn": "lead_time_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "safety_stock",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "33f9bbef-2fea-4452-949b-eac1aa2b77f0",
+            "sourceColumn": "safety_stock",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "reorder_point",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "de0e4881-4c4f-4d3a-86cb-d6adc88f546c",
+            "sourceColumn": "reorder_point",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "annualized_cogs",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1d3d79e1-daf1-484a-80b9-67d89065463d",
+            "sourceColumn": "annualized_cogs",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "annual_units_sold",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6e3cd3c3-31e1-4078-94e9-d5e983ac96ab",
+            "sourceColumn": "annual_units_sold",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "inventory_turnover",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b841ad12-c8af-43d0-a9e8-0adabaf33a85",
+            "sourceColumn": "inventory_turnover",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dio_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "091c131c-f9c6-400e-8824-f70d09553324",
+            "sourceColumn": "dio_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "days_of_inventory",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1b492679-4a5b-4390-80f1-7148e4618239",
+            "sourceColumn": "days_of_inventory",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "demand_during_lead_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5ef35e13-6593-4962-b736-8e42b491da7d",
+            "sourceColumn": "demand_during_lead_time",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "target_inventory",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "762ed936-ee97-4cc5-a09e-237d3e32d73f",
+            "sourceColumn": "target_inventory",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "excess_units",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7e8b6ac6-a171-4b53-830b-bb117ee56ded",
+            "sourceColumn": "excess_units",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "excess_inventory_value",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "09f1d85b-d1c9-4386-adc0-c814c3b0898b",
+            "sourceColumn": "excess_inventory_value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "is_slow_moving",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7d488028-5019-46ed-93db-125a900ed6fb",
+            "sourceColumn": "is_slow_moving",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "inventory_health_status",
+            "dataType": "string",
+            "lineageTag": "1c184283-fd21-4ef2-b809-eff2edf32e2b",
+            "sourceColumn": "inventory_health_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "demand_cv",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "016dfa38-4c5b-445e-bda3-14d36e47eca3",
+            "sourceColumn": "demand_cv",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "volatility_risk_comp",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "651dc3f9-b9ca-45e2-aa47-adceacf6d965",
+            "sourceColumn": "volatility_risk_comp",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "forecast_demand_lead_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c7164cc9-2f4d-438f-aae1-69deccf8ccca",
+            "sourceColumn": "forecast_demand_lead_time",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "forecast_daily_mean",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c56564c5-994a-4fb3-b5c4-d2ec3f44c593",
+            "sourceColumn": "forecast_daily_mean",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "stockout_risk_comp",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "bd590519-2fa2-4e12-9c92-5c31c79fb94f",
+            "sourceColumn": "stockout_risk_comp",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "supplier_risk_comp",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ef938f34-146b-4080-ad58-5f06772c8931",
+            "sourceColumn": "supplier_risk_comp",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lead_time_risk_comp",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cc225fef-9825-49c2-a929-dd7305987fa3",
+            "sourceColumn": "lead_time_risk_comp",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "excess_risk_comp",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "af8dface-5b29-489c-a55b-60db27520641",
+            "sourceColumn": "excess_risk_comp",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "inventory_risk_score",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "74fe47e4-9eaa-4351-9367-4ebdcc38cae2",
+            "sourceColumn": "inventory_risk_score",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "risk_category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1a6b64f8-b15f-4f51-af5d-87faa758239d",
+            "sourceColumn": "risk_category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "recommended_action",
+            "dataType": "string",
+            "lineageTag": "65e856b8-d4c4-43f4-845c-9bf760debc78",
+            "sourceColumn": "recommended_action",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "abc_class",
+            "dataType": "string",
+            "lineageTag": "8cab1399-3270-4fcf-a126-aff989d24855",
+            "sourceColumn": "abc_class",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "ee46f6e5-0364-4451-b23b-919e51d7005b",
+        "measures": [
+          {
+            "name": "Average Days of Inventory",
+            "expression": "AVERAGE(Inventory_Risk_Scores[days_of_inventory])",
+            "formatString": "0.0 'Days'",
+            "lineageTag": "bf6c6256-9350-4d18-b29d-7acc7c9b46c7"
+          },
+          {
+            "name": "Excess Stock Value",
+            "expression": "CALCULATE(SUMX(Inventory_Risk_Scores, Inventory_Risk_Scores[excess_units] * Inventory_Risk_Scores[unit_cost]), Inventory_Risk_Scores[excess_units] > 0)",
+            "formatString": "\\₹#,0",
+            "lineageTag": "562e2e4d-5dc9-42d4-ad1c-36a7fec235c6"
+          },
+          {
+            "name": "High Risk SKUs",
+            "expression": "CALCULATE(COUNTROWS(Inventory_Risk_Scores), Inventory_Risk_Scores[risk_category] = \"High\")",
+            "formatString": "#,0",
+            "lineageTag": "79241f9d-6d17-4108-9b05-ed9694593938"
+          },
+          {
+            "name": "Average Risk Score",
+            "expression": "AVERAGE(Inventory_Risk_Scores[inventory_risk_score])",
+            "formatString": "0.0",
+            "lineageTag": "3da3f1c2-8f11-471e-896a-180959ad0154"
+          },
+          {
+            "name": "Action Count",
+            "expression": "COUNTROWS(Inventory_Risk_Scores)",
+            "formatString": "#,0",
+            "lineageTag": "8a9778c3-9740-4e34-8a56-b9b0a29454a5"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Inventory_Risk_Scores",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    Inventory_Risk_Scores_Sheet = Source{[Item=\"Inventory_Risk_Scores\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Inventory_Risk_Scores_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Supplier_Scorecard",
+        "columns": [
+          {
+            "name": "supplier_id",
+            "dataType": "string",
+            "lineageTag": "bd73e9e6-6e0a-45a1-a221-20f1f5e0abc0",
+            "sourceColumn": "supplier_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "supplier_name",
+            "dataType": "string",
+            "lineageTag": "46309dfe-3498-4688-b3e0-6116add4af91",
+            "sourceColumn": "supplier_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "supplier_region",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cbf4f8de-fe35-44c8-a6af-a559f5a2fed9",
+            "sourceColumn": "supplier_region",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "supplier_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d9d22e86-d2ea-4585-b69d-ea63889abcbd",
+            "sourceColumn": "supplier_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "contract_start_date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fdb2d341-3951-4934-b473-6e68dbe50744",
+            "sourceColumn": "contract_start_date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_deliveries",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9cff657d-bda2-45bf-bdd6-0dcf0954b719",
+            "sourceColumn": "total_deliveries",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "on_time_deliveries",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d41f7ee0-74b0-4cfa-8c31-054e6675c1d9",
+            "sourceColumn": "on_time_deliveries",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "avg_transit_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "db80ed55-33c4-4286-b5ae-a6d41d3fac05",
+            "sourceColumn": "avg_transit_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "avg_delay_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "aa35e078-b52b-46e5-aad0-443708adf9d5",
+            "sourceColumn": "avg_delay_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_qty_ordered",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "93c7670e-a78a-4ff1-8d00-db51f3902b3b",
+            "sourceColumn": "total_qty_ordered",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_qty_received",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0eafedd6-922b-4ede-be0d-873554c64c11",
+            "sourceColumn": "total_qty_received",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_damaged_qty",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c68a89e6-708f-436d-b916-956fd908a70a",
+            "sourceColumn": "total_damaged_qty",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "on_time_delivery_rate_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7123633c-a888-4c5e-a342-0863a7774e0a",
+            "sourceColumn": "on_time_delivery_rate_pct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "fill_rate_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0bd091fc-e814-4181-947c-f675553e5250",
+            "sourceColumn": "fill_rate_pct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "defect_rate_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "587d069d-fd6a-4de9-b71c-1e9f5628229d",
+            "sourceColumn": "defect_rate_pct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_pos_issued",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "46f0abc0-7bf9-4581-a9f3-c602e6e38e02",
+            "sourceColumn": "total_pos_issued",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_procurement_spend",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "bc1ef0b4-5e67-469e-9d2e-ad6e8453993f",
+            "sourceColumn": "total_procurement_spend",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "supplier_risk_score",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "63e37c22-402f-48af-a602-9b5499e72b4f",
+            "sourceColumn": "supplier_risk_score",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "supplier_rating",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6fb3be29-2bde-4339-896b-e7db7bb95350",
+            "sourceColumn": "supplier_rating",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "9b0a26f9-102d-4d98-b803-5749a7362d54",
+        "measures": [
+          {
+            "name": "Active Suppliers",
+            "expression": "DISTINCTCOUNT(Supplier_Scorecard[supplier_id])",
+            "formatString": "#,0",
+            "lineageTag": "0e879d59-0fc0-4359-89b4-3d2910f021ac"
+          },
+          {
+            "name": "Average Supplier Delay",
+            "expression": "AVERAGE(Supplier_Scorecard[avg_delay_days])",
+            "formatString": "0.0 'Days'",
+            "lineageTag": "6a38bac7-ba5d-4ced-8d4c-59eb031b564c"
+          },
+          {
+            "name": "Average Fill Rate",
+            "expression": "AVERAGE(Supplier_Scorecard[fill_rate_pct]) / 100",
+            "formatString": "0.00%",
+            "lineageTag": "259a39f3-0f4a-427a-857c-8788da719fcd"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Supplier_Scorecard",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    Supplier_Scorecard_Sheet = Source{[Item=\"Supplier_Scorecard\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Supplier_Scorecard_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "ABC_Analysis",
+        "columns": [
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "lineageTag": "4508d62c-b2bc-43f8-9b10-ab00547988c5",
+            "sourceColumn": "product_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_name",
+            "dataType": "string",
+            "lineageTag": "6eab8a7c-6551-4c0d-b4ba-984d75fa3395",
+            "sourceColumn": "product_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2fd9218c-b7eb-41b8-be11-6998527f4a5c",
+            "sourceColumn": "category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unit_cost",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "607fb38b-a757-4354-a330-becd87777fda",
+            "sourceColumn": "unit_cost",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_units_sold",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "35310052-54b1-4622-97b9-c252f2b4bcc7",
+            "sourceColumn": "total_units_sold",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "total_cogs",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "58967d34-1cc8-4c9d-b871-1d87cb25b4d0",
+            "sourceColumn": "total_cogs",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cum_cogs_pct",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c73734b4-bc47-49c2-88cc-5ae7bd90712a",
+            "sourceColumn": "cum_cogs_pct",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "abc_class",
+            "dataType": "string",
+            "lineageTag": "1b3c3074-cb81-4ae7-ba02-71986a9a7571",
+            "sourceColumn": "abc_class",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "6dd28c1d-e263-4753-a3e1-714e5501630d",
+        "measures": [
+          {
+            "name": "Class A SKUs",
+            "expression": "CALCULATE(COUNTROWS(ABC_Analysis), ABC_Analysis[abc_class] = \"A\")",
+            "formatString": "#,0",
+            "lineageTag": "404cbdc5-713c-4953-9231-60f7b9945eee"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ABC_Analysis",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    ABC_Analysis_Sheet = Source{[Item=\"ABC_Analysis\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(ABC_Analysis_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Demand_Forecasts",
+        "columns": [
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "lineageTag": "e619d464-5895-40ab-9635-15b2ae12da6a",
+            "sourceColumn": "product_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "warehouse_id",
+            "dataType": "string",
+            "lineageTag": "9e214f9a-f199-4c76-b0e0-2e8d9d670d14",
+            "sourceColumn": "warehouse_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "forecast_daily_mean",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d881713b-2505-4942-9683-f476637ef806",
+            "sourceColumn": "forecast_daily_mean",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "forecast_daily_std",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ee8b1669-4b63-47c7-a085-a75c1aedad56",
+            "sourceColumn": "forecast_daily_std",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "actual_daily_mean",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "96145f35-577c-4fa5-81d3-e9011b3eadf3",
+            "sourceColumn": "actual_daily_mean",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "test_days_count",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "40cd158c-1333-41e4-819a-2782b57a1418",
+            "sourceColumn": "test_days_count",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "lead_time_days",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "70f556cb-25ac-4642-8b0c-f53f235022ff",
+            "sourceColumn": "lead_time_days",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "forecast_demand_lead_time",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "33d5c20e-8788-4fb1-891f-a8ec129f9017",
+            "sourceColumn": "forecast_demand_lead_time",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "forecast_next_30d",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6ec4b7ad-37a0-452f-8aec-1b8c780a1c45",
+            "sourceColumn": "forecast_next_30d",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "38ab3431-2f36-4a67-b4a6-fe3875bba3a7",
+        "measures": [
+          {
+            "name": "Forecast Accuracy MAE",
+            "expression": "2.21",
+            "formatString": "0.00 'units/day'",
+            "lineageTag": "418f77e7-aab3-409a-ad90-799f6ed20307"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Demand_Forecasts",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Excel.Workbook(File.Contents(\"D:/PROJECTS/DA/DA2/data/processed/supply_chain_powerbi_data.xlsx\"), null, true),",
+                "    Demand_Forecasts_Sheet = Source{[Item=\"Demand_Forecasts\",Kind=\"Sheet\"]}[Data],",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Demand_Forecasts_Sheet, [PromoteAllScalars=true])",
+                "in",
+                "    #\"Promoted Headers\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+warehouse_id,warehouse_name,city,state,warehouse_capacity
+W001,Bengaluru Central Fulfillment Hub,Bengaluru,Karnataka,60000
+W002,Delhi NCR Northern Mega Hub,Delhi NCR,Delhi,75000
+W003,Mumbai Bhiwandi Logistics Depot,Mumbai,Maharashtra,80000
+W004,Chennai Coastal Distribution Center,Chennai,Tamil Nadu,40000

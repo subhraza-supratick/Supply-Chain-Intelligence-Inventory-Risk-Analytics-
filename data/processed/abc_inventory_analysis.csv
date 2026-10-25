@@ -1,0 +1,61 @@
+product_id,product_name,category,unit_cost,total_units_sold,total_cogs,cum_cogs_pct,abc_class
+P001,Pro Ultrabook Laptop 15,Electronics,52000,2799,145548000,21.46340398780927,A
+P002,Business Laptop Core i7,Electronics,44000,3014,132616000,41.019775653839126,A
+P004,4K Ultra Gaming Monitor 27,Electronics,18500,3278,60643000,49.96256571644883,A
+P003,Student Laptop Slim 14,Electronics,28000,1567,43876000,56.43279075127665,A
+P028,Cordless Stick Vacuum Cleaner,Home Appliances,9500,2956,28082000,60.57393532753782,A
+P016,HEPA Smart Air Purifier Pro,Home Appliances,8500,3300,28050000,64.71036098682582,A
+P046,Ergonomic Mesh Executive Chair,Office Supplies,7500,2984,22380000,68.01065354493153,A
+P029,Robot Vacuum Cleaner Auto-Mop,Home Appliances,18000,1225,22050000,71.26228227175152,A
+P007,Wireless ANC Headphones Pro,Electronics,4500,3069,13810500,73.29886361105979,A
+P047,High-Back Orthopedic Desk Chair,Office Supplies,9800,1351,13239800,75.2512860154748,A
+P054,Cordless Impact Drill Kit 18V,Industrial & Tools,4800,2621,12580800,77.10652822347375,A
+P005,FHD Office Monitor 24,Electronics,9200,1063,9779600,78.54868823693447,A
+P010,Smart Fitness Watch Ultra,Electronics,3200,2996,9587200,79.96247576209403,A
+P022,Heavy Duty Mixer Grinder 750W,Home Appliances,3200,2973,9513600,81.36540977821532,B
+P008,Bluetooth Soundbar 120W,Electronics,6800,1317,8955600,82.6860576796171,B
+P019,Espresso Coffee Maker 15-Bar,Home Appliances,7200,1083,7797600,83.83593977305253,B
+P013,Digital Inverter Backup 1100VA,Electronics,7500,955,7162500,84.89216611118624,B
+P006,Curved Designer Monitor 32,Electronics,26000,253,6578000,85.86219848148201,B
+P009,True Wireless Earbuds Elite,Electronics,2200,2942,6472400,86.81665842576635,B
+P017,Compact Room Air Purifier,Home Appliances,5200,1166,6063200,87.71077521925636,B
+P055,Rotary Hammer Drill 800W,Industrial & Tools,6200,972,6026400,88.59946525822726,B
+P031,Mechanical RGB Gaming Keyboard,Accessories,2200,2697,5933400,89.47444094474487,B
+P051,Dual Monitor Desk Mount Arm,Office Supplies,2200,2632,5790400,90.32832897103867,B
+P037,USB-C 7-in-1 Aluminum Dock,Accessories,1800,3048,5486400,91.13738728608743,B
+P040,65W GaN Fast Charger 3-Port,Accessories,1600,3211,5137600,91.89500940612872,B
+P025,Smart RGB Ambient Light Kit,Home Appliances,1900,2541,4827900,92.60696125783912,B
+P050,Cross-Cut Document Shredder 15L,Office Supplies,4200,1093,4590600,93.2839193908704,B
+P049,Magnetic Glass Whiteboard 4x3,Office Supplies,3200,1281,4099200,93.88841265513254,B
+P015,Fast Charging Power Bank 20000mAh,Electronics,1400,2649,3708600,94.43530563909104,B
+P034,Ergonomic Vertical Mouse,Accessories,1400,2577,3607800,94.96733403458406,B
+P023,Nutri-Bullet High Speed Blender,Home Appliances,2800,1288,3606400,95.49915597745951,C
+P011,Smart Home Security Camera,Electronics,2400,1231,2954400,95.93482998700675,C
+P041,100W Laptop USB-C Adapter,Accessories,2100,1359,2853900,96.35568364793518,C
+P056,Laser Distance Meter 50M,Industrial & Tools,1900,1335,2536500,96.72973155113603,C
+P014,Heavy Duty UPS 1500VA,Electronics,11000,227,2497000,97.09795454119813,C
+P059,Steel Toe Safety Work Boots,Industrial & Tools,1800,1253,2255400,97.43054970811286,C
+P024,Commercial Juicer Grinder 1000W,Home Appliances,5500,355,1952500,97.71847737655351,C
+P043,Waterproof Laptop Backpack 15,Accessories,1400,1236,1730400,97.97365281187727,C
+P026,Smart LED Ceiling Panel 36W,Home Appliances,1400,1155,1617000,98.21210558517741,C
+P033,Ergonomic Split Keyboard,Accessories,3500,380,1330000,98.40823557187449,C
+P032,Slim Wireless Office Keyboard,Accessories,1100,1148,1262800,98.59445583292793,C
+P035,Precision Optical Mouse USB,Accessories,450,2520,1134000,98.76168245316438,C
+P036,Bluetooth Travel Mouse,Accessories,850,1326,1127100,98.9278915569285,C
+P045,Executive Leather Briefcase,Accessories,3200,324,1036800,99.08078446685897,C
+P020,Drip Filter Coffee Brewer,Home Appliances,2400,414,993600,99.22730683887568,C
+P012,Smart Wi-Fi Mesh Router,Electronics,3800,258,980400,99.37188265764095,C
+P018,Car Air Ionizer Purifier,Home Appliances,1800,359,646200,99.46717528726776,C
+P030,Handheld Car Vacuum 120W,Home Appliances,1600,379,606400,99.5565987639092,C
+P048,Foldable Training Chair with Pad,Office Supplies,2400,233,559200,99.63906183801521,C
+P042,Magnetic Wireless Car Charger,Accessories,1100,400,440000,99.7039469463962,C
+P039,Thunderbolt 4 High-Speed Cable,Accessories,1200,281,337200,99.7536725340009,C
+P021,Cold Brew Maker Stainless,Home Appliances,1600,195,312000,99.79968197448925,C
+P057,Digital Multimeter Professional,Industrial & Tools,1400,205,287000,99.8420047610923,C
+P060,Heavy Duty Screwdriver Set 42pc,Industrial & Tools,850,242,205700,99.8723385492604,C
+P044,Shockproof Laptop Sleeve 14,Accessories,650,308,200200,99.90186127357376,C
+P053,Large Desk Blotter Pad Leather,Office Supplies,650,250,162500,99.9258245238281,C
+P052,Aluminum Laptop Stand Riser,Office Supplies,850,189,160650,99.94951496169493,C
+P027,Motion Sensor Outdoor Lamp,Home Appliances,950,162,153900,99.97221000301273,C
+P058,Industrial Safety Helmet & Visor,Industrial & Tools,650,151,98150,99.98668380616635,C
+P038,Braided 4K HDMI Cable 3M,Accessories,350,258,90300,100.0,C

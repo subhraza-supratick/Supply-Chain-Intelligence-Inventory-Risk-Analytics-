@@ -1,0 +1,22 @@
+test_name,table,status,failed_count,details
+Null Value Check,products,PASSED,0,Zero null values found
+Null Value Check,suppliers,PASSED,0,Zero null values found
+Null Value Check,warehouses,PASSED,0,Zero null values found
+Null Value Check,sales,PASSED,0,Zero null values found
+Null Value Check,inventory,PASSED,0,Zero null values found
+Null Value Check,purchase_orders,PASSED,0,Zero null values found
+Null Value Check,deliveries,PASSED,0,Zero null values found
+Primary Key Uniqueness,products,PASSED,0,Unique on ['product_id']
+Primary Key Uniqueness,suppliers,PASSED,0,Unique on ['supplier_id']
+Primary Key Uniqueness,warehouses,PASSED,0,Unique on ['warehouse_id']
+Primary Key Uniqueness,sales,PASSED,0,Unique on ['sale_id']
+Primary Key Uniqueness,purchase_orders,PASSED,0,Unique on ['po_id']
+Primary Key Uniqueness,deliveries,PASSED,0,Unique on ['delivery_id']
+Primary Key Uniqueness,inventory,PASSED,0,"Unique on ['inventory_date', 'product_id', 'warehouse_id']"
+Quantity & Price Positive,sales,PASSED,0,All sales qty and prices > 0
+Cost & Margin Validity,products,PASSED,0,All costs > 0 and price >= cost
+Date Chronology Logic,purchase_orders,PASSED,0,All delivery dates >= PO date
+Dispatch vs Delivery Date,deliveries,PASSED,0,All deliveries arrive on or after dispatch
+Referential Integrity,sales,PASSED,0,All product_id and warehouse_id exist in master tables
+Referential Integrity,purchase_orders,PASSED,0,"All foreign keys (product, supplier, warehouse) resolve"
+Inventory Conservation Law,inventory,PASSED,0,closing = opening + received - sold - damaged matches exactly (100%)

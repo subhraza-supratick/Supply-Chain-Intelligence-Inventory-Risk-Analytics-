@@ -1,0 +1,9 @@
+supplier_id,supplier_name,supplier_region,supplier_type,contract_start_date
+S001,Bharat Electronics Ltd,Bengaluru Tech Corridor,Direct Manufacturer,2021-03-15
+S002,Tata AutoComp Precision Sourcing,Pune Industrial Belt,Tier-1 Distributor,2020-07-01
+S003,Godrej Precision Hardware,Mumbai Industrial Zone,OEM Manufacturer,2021-11-20
+S005,Havells Components Noida,Noida Sector 62 Hub,Tier-1 Distributor,2022-01-10
+S006,Lucas-TVS Electrical Hub,Chennai Auto Cluster,Direct Manufacturer,2021-05-18
+S008,Sanand Microtech Hub,Ahmedabad Sanand Hub,Regional Supplier,2022-06-01
+S004,Delta Sourcing Logistics India,Chennai Sriperumbudur,Regional Distributor,2022-08-14
+S007,Krystal Microtech Hyderabad,Hyderabad Hardware Park,Component Importer,2023-02-10

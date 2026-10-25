@@ -1,0 +1,9 @@
+supplier_id,supplier_name,supplier_region,supplier_type,contract_start_date,total_deliveries,on_time_deliveries,avg_transit_days,avg_delay_days,total_qty_ordered,total_qty_received,total_damaged_qty,on_time_delivery_rate_pct,fill_rate_pct,defect_rate_pct,total_pos_issued,total_procurement_spend,supplier_risk_score,supplier_rating
+S001,Bharat Electronics Ltd,Bengaluru Tech Corridor,Direct Manufacturer,2021-03-15,209,113,6.435406698564593,0.45,13166,12845,120,54.07,97.56,0.93,209,75629100,23.0,Standard / Tier 2 (Reliable)
+S002,Tata AutoComp Precision Sourcing,Pune Industrial Belt,Tier-1 Distributor,2020-07-01,287,127,6.411149825783972,0.78,13596,13174,148,44.25,96.9,1.12,287,39255750,28.8,Standard / Tier 2 (Reliable)
+S003,Godrej Precision Hardware,Mumbai Industrial Zone,OEM Manufacturer,2021-11-20,155,34,10.187096774193549,1.58,8383,7938,135,21.94,94.69,1.7,155,166645850,42.5,Standard / Tier 2 (Reliable)
+S005,Havells Components Noida,Noida Sector 62 Hub,Tier-1 Distributor,2022-01-10,389,66,7.987146529562982,1.9,17793,16651,342,16.97,93.58,2.05,389,46892550,46.8,Under Watch / Tier 3 (Moderate Risk)
+S006,Lucas-TVS Electrical Hub,Chennai Auto Cluster,Direct Manufacturer,2021-05-18,109,30,6.8807339449541285,1.47,6297,5930,108,27.52,94.17,1.82,109,19236000,40.3,Standard / Tier 2 (Reliable)
+S008,Sanand Microtech Hub,Ahmedabad Sanand Hub,Regional Supplier,2022-06-01,170,27,9.935294117647059,2.11,10624,9836,240,15.88,92.58,2.44,170,69828550,49.3,Under Watch / Tier 3 (Moderate Risk)
+S004,Delta Sourcing Logistics India,Chennai Sriperumbudur,Regional Distributor,2022-08-14,194,0,14.371134020618557,5.28,12025,10504,522,0.0,87.35,4.97,194,127433800,75.2,High Risk / Critical Review Required
+S007,Krystal Microtech Hyderabad,Hyderabad Hardware Park,Component Importer,2023-02-10,220,0,15.159090909090908,6.66,10422,8481,493,0.0,81.38,5.81,220,184688900,83.3,High Risk / Critical Review Required
